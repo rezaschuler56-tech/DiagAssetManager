@@ -40,6 +40,12 @@ jobs:
           mkdir -p offroad-app/app/src/main/java/com/offroad/smartcontrol
           mkdir -p offroad-app/app/src/main/res/values
 
+          cat > offroad-app/gradle.properties <<'EOF'
+          android.useAndroidX=true
+          android.nonTransitiveRClass=true
+          org.gradle.jvmargs=-Xmx2g -Dfile.encoding=UTF-8
+          EOF
+
           cat > offroad-app/settings.gradle.kts <<'EOF'
           pluginManagement {
               repositories { google(); mavenCentral(); gradlePluginPortal() }
